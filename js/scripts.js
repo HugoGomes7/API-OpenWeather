@@ -1,4 +1,4 @@
-const apiKey = "9e92702e2898916292e45b6533e6d2b0";
+const apiKey = "263e96693cdf4f0563b2b60d386367aa";
 const apiCountryURL = "https://countryflagsapi.com/png/";
 
 const cityInput = document.querySelector("#city-input");
@@ -11,6 +11,8 @@ const descriptionElement = document.querySelector("#descriptions");
 const weatherIconElement = document.querySelector("#weather-icon");
 const humidityElement = document.querySelector("#humidity span");
 const windElement = document.querySelector("#wind span");
+
+const weatherContainer = document.querySelector("#weather-data");
 
 
 const getWeatherData = async (city) => {
@@ -30,12 +32,13 @@ const showWeatherData = async (city) => {
   descriptionElement.innerText = data.weather[0].description;
   weatherIconElement.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+    `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
   );
   countryElement.setAttribute("src", apiCountryURL + data.sys.country);
   humidityElement.innerText = `${data.main.humidity}%`;
   windElement.innerText = `${data.wind.speed}km/h`;
 
+  weatherContainer.classList.remove("hide");
 };
 
 searchBtn.addEventListener("click", (a) => {
