@@ -1,5 +1,6 @@
 const apiKey = "263e96693cdf4f0563b2b60d386367aa";
 const apiCountryURL = "https://countryflagsapi.com/png/";
+const apiUnsplash = "https://source.unsplash.com/1600x900/?";
 
 const cityInput = document.querySelector("#city-input");
 const searchBtn = document.querySelector("#search");
@@ -18,7 +19,7 @@ const errorMessageContainer = document.querySelector("#error-message");
 const loader = document.querySelector("#loader");
 
 const suggestionsContainer = document.querySelector("#suggestions");
-const suggestionsButton = document.querySelector("#suggestions button");
+const suggestionButtons = document.querySelector("#suggestions button");
 
 const toggleLoader = () => {
   loader.classList.toggle("hide");
@@ -54,7 +55,7 @@ const showWeatherData = async (city) => {
   const data = await getWeatherData(city);
 
   if (data.cod === "404") {
-    showErrorMessage(data.message);
+    showErrorMessage();
     return;
   }
 
@@ -88,7 +89,7 @@ cityInput.addEventListener("keyup", (a) => {
   }
 });
 
-suggestionsButtons.forEach((btn) => {
+suggestionButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const city = btn.getAtribute("id");
 
