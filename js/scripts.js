@@ -17,6 +17,9 @@ const weatherContainer = document.querySelector("#weather-data");
 const errorMessageContainer = document.querySelector("#error-message");
 const loader = document.querySelector("#loader");
 
+const suggestionsContainer = document.querySelector("#suggestions");
+const suggestionsButton = document.querySelector("#suggestions button");
+
 const toggleLoader = () => {
   loader.classList.toggle("hide");
 }
@@ -41,12 +44,19 @@ const showErrorMessage = () => {
 const hideInformation = () => {
   errorMessageContainer.classList.add("hide");
   weatherContainer.classList.add("hide");
+
+  suggestionsContainer.classList.add("hide");
 }
 
 const showWeatherData = async (city) => {
   hideInformation();
 
   const data = await getWeatherData(city);
+
+  if (data.cod === "404") {
+    showErrorMessage(data.message);
+    return;
+  }
 
   cityElement.innerText = data.name;
   tempElement.innerText = parseInt(data.main.temp);
@@ -76,4 +86,12 @@ cityInput.addEventListener("keyup", (a) => {
 
     showWeatherData(city);
   }
+});
+
+suggestionsButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const city = btn.getAtribute("id");
+
+    showWeatherData(city);
+  });
 });
