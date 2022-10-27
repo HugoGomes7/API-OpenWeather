@@ -48,3 +48,11 @@ searchBtn.addEventListener("click", (a) => {
 
   showWeatherData(city);
 });
+
+cityInput.addEventListener("keyup", (a) => {
+  if (a.code === "Enter") {
+    const city = a.target.value;
+
+    showWeatherData(city);
+  }
+});
