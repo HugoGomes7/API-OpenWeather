@@ -11,8 +11,14 @@ I implemented in the project search resulting in weather data, country flag (API
 
 
 ## Layout
+https://user-images.githubusercontent.com/65207104/201681765-9dfc4465-fcfe-496e-b01e-1093b018c685.mp4
+
 ![Web1](https://github.com/HugoGomes7/API-OpenWeather/blob/main/assets/img/home-weather.jpeg)
 ![Web2](https://github.com/HugoGomes7/API-OpenWeather/blob/main/assets/img/search-weather.jpeg)
+
+
+
+
 
 ## Not Found
 ![Web3](https://github.com/HugoGomes7/API-OpenWeather/blob/main/assets/img/error-weather.jpeg)
